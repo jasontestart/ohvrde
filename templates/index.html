@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Ontario Health Vaccine Receipt Data Extractor</title>
+  </head>
+  <body>
+    <h1>PDF Receipt Data Extractor</h1>
+    <p>August 26, 2021</p>
+    <p>As far as I know, Ontario Health generates two kinds of PDF receipts:</p>
+    <ol>
+            <li>One generated at vaccination time, that's emailed. This is a simple PDF file.</li>
+            <li>One that can be generated and downloaded by visiting the <a href="https://covid19.ontariohealth.ca/">Ontario COVID-19 vaccination service</a> website.  This version is a 'duplicate' with a watermark. This is also digitally signed using the Government of Ontario's PKI but it's impossible to validate the signature outside of the Government of Ontario.</li>
+    </ol>
+    <p>This tool simply takes a PDF file, and returns JSON with some data extracted from it, if it appears to be a valid receipt from Ontario Health. Please keep in mind that this is crude "reverse engineering" based on a small sample of valid receipts  and that receipts can be forged.</p>
+    <h2>
+            Extract data from a receipt
+    </h2>
+    <p>PDF files uploaded here are only stored in memory of the server long enough to extract certain data elements from the contents. Data extracted from PDF files uploaded here are not retained. Note: The maximum file size is 256K.</p>
+    <form method="POST" action="extract/" enctype="multipart/form-data">
+      <p><input type="file" name="pdf_file" accept=".pdf"></p>
+      <p><input type="submit" value="Submit"></p>
+    </form>
+  </body>
+</html>
