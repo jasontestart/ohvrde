@@ -1,0 +1,4 @@
+PyPDF4
+python-magic
+flask
+uwsgi
