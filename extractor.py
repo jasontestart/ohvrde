@@ -32,7 +32,7 @@ def parse_text(contents):
                 if sub in ['Note', '----', 'Plea', 'This', 'Your']:
                     org_seen = False
                 else:
-                    result['org'] += " " + line.strip()
+                    result['org'] += f" {line.strip()}"
             else:
                 result['org'] = line.strip()
 
@@ -59,7 +59,7 @@ def get_signature(pdf):
     try:
         sig = bytearray(pdf.getFields()['Signature1']['/V']['/Contents'])
     except:
-        return None
+        return False
     return True
 
 if __name__ == '__main__':
